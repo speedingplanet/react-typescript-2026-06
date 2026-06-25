@@ -64,11 +64,24 @@ function App() {
 							</div>
 						</div>
 					</div>
+					<hr />
 					<div className="row">
 						<div className="col mb-2">
-							<h3>Placeholder</h3>
+							<label
+								htmlFor="dynamic-input"
+								className="form-label"
+							>
+								Enter your name:
+							</label>
+							<input
+								type="text"
+								name="dynamicInput"
+								id="dynamic-input"
+								className="form-control"
+							/>
 						</div>
 					</div>
+					<hr />
 					<div className="row">
 						<div className="col">
 							<h3>Placeholder</h3>
