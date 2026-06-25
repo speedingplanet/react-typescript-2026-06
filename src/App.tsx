@@ -18,6 +18,11 @@ function App() {
 		}
 	}
 
+	function handleFormInput(event: React.ChangeEvent<HTMLInputElement>) {
+		console.log(`You entered ${event.target.value}`);
+		setInputFirstName(event.target.value);
+	}
+
 	return (
 		<main className="container">
 			<header className="row">
@@ -78,6 +83,7 @@ function App() {
 								name="dynamicInput"
 								id="dynamic-input"
 								className="form-control"
+								onChange={handleFormInput}
 							/>
 						</div>
 					</div>
