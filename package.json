@@ -16,6 +16,7 @@
 		"start:rest": "json-server --port 8000 src/data/rest-server-data.json"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^5.101.1",
 		"lodash-es": "^4.18.1",
 		"nanoid": "^5.1.16",
 		"query-string": "^9.4.0",
@@ -26,6 +27,8 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
+		"@tanstack/eslint-plugin-query": "^5.101.1",
+		"@tanstack/react-query-devtools": "^5.101.1",
 		"@testing-library/jest-dom": "^6.9.1",
 		"@testing-library/react": "^16.3.2",
 		"@testing-library/user-event": "^14.6.1",
