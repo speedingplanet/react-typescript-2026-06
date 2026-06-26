@@ -1,8 +1,12 @@
+import { useState } from 'react';
+
 interface GreeterInputProps {
-	callback: (inputName: string) => void;
+	updateName: (inputName: string) => void;
 }
 
-export default function GreeterInput({ callback }: GreeterInputProps) {
+export default function GreeterInput({ updateName }: GreeterInputProps) {
+	const [inputName, setInputName] = useState('');
+
 	return (
 		<div>
 			<label
@@ -11,20 +15,27 @@ export default function GreeterInput({ callback }: GreeterInputProps) {
 			>
 				(GreeterInput) Enter your name:
 			</label>
+			{/* React Controlled Component */}
 			<input
 				type="text"
 				name="inputComponent"
 				id="input-component"
 				className="form-control"
+				onChange={(event) => setInputName(event.target.value)}
+				value={inputName}
 			/>
 			<div className="mt-2">
 				<button
 					className="btn btn-success"
 					onClick={() => {
+						/*
 						let inputField = document.querySelector('#input-component') as HTMLInputElement;
 						if (inputField !== null) {
-							callback(inputField.value);
+							updateName(inputField.value);
 						}
+							*/
+
+						updateName(inputName);
 					}}
 				>
 					Update

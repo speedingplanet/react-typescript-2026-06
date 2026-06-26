@@ -25,7 +25,7 @@ export const GreeterContainer = () => {
 		setInputFirstName(event.target.value);
 	}
 
-	function handleGreeterInput(inputName: string) {
+	function handleUpdateName(inputName: string) {
 		setInputFirstName(inputName);
 	}
 
@@ -97,7 +97,7 @@ export const GreeterContainer = () => {
 					<hr />
 					<div className="row">
 						<div className="col">
-							<GreeterInput callback={handleGreeterInput} />
+							<GreeterInput updateName={handleUpdateName} />
 						</div>
 					</div>
 				</div>
