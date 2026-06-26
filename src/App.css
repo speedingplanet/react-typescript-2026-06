@@ -1,0 +1,16 @@
+/* Prevents annoying adjustments when the scrollbar is displayed */
+html {
+	scrollbar-gutter: stable;
+}
+
+.nav-item a {
+	text-decoration: none;
+}
+
+.nav-item a.active {
+	font-weight: bold;
+}
+
+.main {
+	width: 100%;
+}
