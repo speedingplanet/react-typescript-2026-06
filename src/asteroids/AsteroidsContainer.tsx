@@ -1,3 +1,5 @@
+import ListAsteroids from './ListAsteroids';
+
 const AsteroidsContainer = () => {
 	return (
 		<>
@@ -5,6 +7,9 @@ const AsteroidsContainer = () => {
 				<h1>Asteroids</h1>
 				<hr />
 			</header>
+			<section>
+				<ListAsteroids />
+			</section>
 		</>
 	);
 };
