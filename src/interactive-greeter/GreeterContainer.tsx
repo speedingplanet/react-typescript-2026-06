@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Greeter from './Greeter';
+import GreeterInput from './GreeterInput';
 
 export const GreeterContainer = () => {
 	// const [value, setter] = useState(initialState)
+	// if (lastValue !== newValue) re-render() else doNothing()
 	const [inputFirstName, setInputFirstName] = useState('Jennifer');
 
 	function handleButtonClick() {
@@ -23,6 +25,11 @@ export const GreeterContainer = () => {
 		setInputFirstName(event.target.value);
 	}
 
+	function handleGreeterInput(inputName: string) {
+		setInputFirstName(inputName);
+	}
+
+	console.log('GreeterContainer: render');
 	return (
 		<>
 			<header className="row">
@@ -90,7 +97,7 @@ export const GreeterContainer = () => {
 					<hr />
 					<div className="row">
 						<div className="col">
-							<h3>Placeholder</h3>
+							<GreeterInput callback={handleGreeterInput} />
 						</div>
 					</div>
 				</div>
