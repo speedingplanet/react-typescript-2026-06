@@ -13,7 +13,7 @@
 		"preview": "vite preview",
 		"test": "vitest",
 		"test:browser": "vitest --config=vitest.browser.config.ts",
-		"start:rest": "json-server --port 8000 src/data/asteroids.json"
+		"start:rest": "json-server --port 8001 src/data/asteroids.json"
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^5.101.1",
