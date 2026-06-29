@@ -9,7 +9,7 @@ import { useState } from 'react';
 const ListAsteroids = () => {
 	const [sortCriteria, setSortCriteria] = useState<SortCriteria<Asteroid>>({
 		sortField: undefined,
-		sortDirection: undefined,
+		sortDirection: 'asc',
 	});
 
 	let asteroids: Array<Asteroid> = sentryData.map((sd) => convertData(sd));
