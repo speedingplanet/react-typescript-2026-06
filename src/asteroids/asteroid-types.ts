@@ -37,3 +37,10 @@ export interface SentryData {
 	method: string;
 	des: string;
 }
+
+export type SortDirection = 'asc' | 'desc' | undefined;
+
+export interface SortCriteria<T> {
+	sortField: keyof T | undefined;
+	sortDirection: SortDirection;
+}
