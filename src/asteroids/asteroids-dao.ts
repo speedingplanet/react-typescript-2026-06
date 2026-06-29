@@ -16,4 +16,19 @@
  * Look at react-ts-demos/src/async-demos/countries-dao.ts for inspiration
  */
 
-console.log('Hello world!');
+let baseUrl = 'http://localhost:8001/asteroids';
+
+export async function fetchAllAsteroids() {
+	try {
+		let response = await fetch(baseUrl);
+		if (response.ok) {
+			let results = await response.json();
+			return results;
+		} else {
+			throw Error(`Bad response: ${response.status}`);
+		}
+	} catch (error) {
+		console.error('asteroids-dao: Error:', error);
+		throw error;
+	}
+}

@@ -1,10 +1,12 @@
 import AsteroidsGrid from './AsteroidsGrid';
 import SortForm from './SortForm';
-import { asteroids as sentryData } from '../data/asteroids.json' with { type: 'json' };
+// import { asteroids as sentryData } from '../data/asteroids.json' with { type: 'json' };
 import { convertData } from './asteroid-utilities';
-import type { Asteroid, SortCriteria } from './asteroid-types';
+import type { Asteroid, SentryData, SortCriteria } from './asteroid-types';
 import { orderBy } from 'es-toolkit';
 import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchAllAsteroids } from './asteroids-dao';
 
 /*
  * Use ReactQuery to fetch the list of asteroids, rather than importing them as hard-coded data.
@@ -18,13 +20,27 @@ import { useState } from 'react';
  */
 
 const ListAsteroids = () => {
+	const queryResults = useQuery({
+		queryFn: fetchAllAsteroids,
+		queryKey: ['asteroids'],
+	});
+
 	const [sortCriteria, setSortCriteria] = useState<SortCriteria<Asteroid>>({
 		sortField: undefined,
 		sortDirection: 'asc',
 	});
 
+	if (queryResults.isPending) {
+		return <span>I wish I had a spinner, data still loading</span>;
+	}
+
+	if (queryResults.isError) {
+		return <span>Something went terribly wrong.</span>;
+	}
+
 	// TODO: Change this to use the data from the request, rather than the hard-coded data
-	let asteroids: Array<Asteroid> = sentryData.map((sd) => convertData(sd));
+	// let asteroids: Array<Asteroid> = sentryData.map((sd) => convertData(sd));
+	let asteroids: Asteroid[] = queryResults.data.map((sd: SentryData) => convertData(sd));
 
 	if (sortCriteria.sortDirection !== undefined) {
 		asteroids = orderBy(asteroids, [sortCriteria.sortField!], [sortCriteria.sortDirection]);
