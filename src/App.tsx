@@ -22,7 +22,7 @@ function App() {
 					element={<GreeterContainer />}
 				/>
 				<Route
-					path="/asteroids"
+					path="/asteroids/*"
 					element={<AsteroidsContainer />}
 				/>
 			</Routes>

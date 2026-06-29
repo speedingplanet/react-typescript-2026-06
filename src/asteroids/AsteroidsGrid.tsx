@@ -10,7 +10,7 @@ const AsteroidsGrid = ({ asteroids }: AsteroidGridProps) => {
 		<ul>
 			{asteroids.map((a) => (
 				<li key={a.name}>
-					Name: {a.name} | mass: {a.mass} | last seen: {dateFormatter(a.lastObserved)} | risk:{' '}
+					Name: {a.name} | mass: {a.mass} kg | last seen: {dateFormatter(a.lastObserved)} | risk:{' '}
 					{a.impactProbability}
 				</li>
 			))}
