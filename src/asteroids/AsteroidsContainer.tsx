@@ -3,10 +3,13 @@ import ListAsteroids from './ListAsteroids';
 import AddAsteroid from './AddAsteroid';
 import EditAsteroid from './EditAsteroid';
 import DeleteAsteroid from './DeleteAsteroid';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const AsteroidsContainer = () => {
+	const queryClient = new QueryClient();
+
 	return (
-		<>
+		<QueryClientProvider client={queryClient}>
 			<header className="row">
 				<h1>Asteroids</h1>
 				<hr />
@@ -47,7 +50,7 @@ const AsteroidsContainer = () => {
 					/>
 				</Routes>
 			</section>
-		</>
+		</QueryClientProvider>
 	);
 };
 export default AsteroidsContainer;
